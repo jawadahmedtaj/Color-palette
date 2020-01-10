@@ -3,13 +3,7 @@ import Palette from "./Palette";
 import seedColors from "./seedColors";
 
 function App() {
-  return (
-    <div className="Palette">
-      {/* navbar goes here */}
-      <div className="Palette-colors">{/* color boxes go here */}</div>
-      {/* footer goes here */}
-    </div>
-  );
+  return <Palette {...seedColors[4]} />;
 }
 
 export default App;
