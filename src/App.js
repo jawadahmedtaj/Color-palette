@@ -8,7 +8,7 @@ import PaletteList from "./PaletteList";
 
 class App extends Component {
   findPalette(id) {
-    return seedColors.find(function(palette) {
+    return seedColors.find(function (palette) {
       return palette.id === id;
     });
   }
@@ -19,12 +19,14 @@ class App extends Component {
         <Route
           exact
           path="/"
-          render={() => <PaletteList palettes={seedColors} />}
+          render={(routeProps) => (
+            <PaletteList palettes={seedColors} {...routeProps} />
+          )}
         />
         <Route
           exact
           path="/palette/:id"
-          render={routeProps => (
+          render={(routeProps) => (
             <Palette
               palette={generatePalette(
                 this.findPalette(routeProps.match.params.id)
@@ -33,9 +35,6 @@ class App extends Component {
           )}
         />
       </Switch>
-      // <div>
-      //   <Palette palette={generatePalette(seedColors[4])} />
-      // </div>
     );
   }
 }
